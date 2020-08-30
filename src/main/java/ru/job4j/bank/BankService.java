@@ -46,8 +46,9 @@ public class BankService {
         User user = findByPassport(passport);
         if (user != null) {
             List<Account> accounts = users.get(user);
-            if (!accounts.contains(account)) ;
-            accounts.add(account);
+            if (!accounts.contains(account)) {
+                accounts.add(account);
+            }
         }
     }
 
@@ -103,10 +104,12 @@ public class BankService {
         boolean rsl = false;
         Account srcAccount = findByRequisite(srcPassport, srcRequisite);
         Account destAccount = findByRequisite(destPassport, dеstRequisite);
-        if (srcAccount != null || destAccount != null || amount > srcAccount.getBalance()) {
+        boolean money = amount > srcAccount.getBalance();
+        if (srcAccount != null && destAccount != null && money) {
+            rsl = true;
+        } else {
             srcAccount.setBalance(srcAccount.getBalance() - amount);
             destAccount.setBalance(destAccount.getBalance() + amount);
-            rsl = true;
         }
         return rsl;
     }
