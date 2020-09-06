@@ -11,8 +11,8 @@ public class Account {
     private double balance;
 
     public Account(String requisite, double balance) {
-        this.requisite = requisite;
-        this.balance = balance;
+        this.requisite = requisite;//создаем новый аккаунт пользователя и регистрируем его
+        this.balance = balance;//создаем балланс пользователя
     }
 
     /**

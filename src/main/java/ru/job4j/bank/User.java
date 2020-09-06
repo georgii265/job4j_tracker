@@ -40,6 +40,6 @@ public class User {
 
     @Override
     public int hashCode() {
-        return Objects.hash(passport);
+        return Objects.hash(passport);//сравниваем хешкод пользователя
     }
 }

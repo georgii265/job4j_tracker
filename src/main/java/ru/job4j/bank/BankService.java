@@ -25,8 +25,8 @@ public class BankService {
      * @param user
      */
     public void addUser(User user) {
-        List<Account> newUser = new ArrayList<>();
-        users.putIfAbsent(user, newUser);
+        List<Account> newUser = new ArrayList<>();//проверяем пользователя
+        users.putIfAbsent(user, newUser);//если его нет тогда добавляем
     }
 
     /**
@@ -55,12 +55,16 @@ public class BankService {
     /**
      * Это метод ищет пользователя по номеру паспорта.
      * Здесь нужно использовать перебор всех элементов через цикл for-earch и метод Map.keySet.
+     * Set<K> keySet() – Возвращает представление карты в виде множества всех ключей.
+     * Из этого представления можно удалять элементы,
+     * при этом ключи и соответствующие им значения автоматически удаляются из карты,
+     * но добавлять новые элементы нельзя.
      * @param passport
      * @return
      */
     public User findByPassport(String passport) {
-        for (User user : users.keySet()) {
-            if (user.getPassport().equals(passport)) {
+        for (User user : users.keySet()) {//ищем пользователя по его размеру
+            if (user.getPassport().equals(passport)) {//здесь мы сравниваем паспорт пользователя и паспорт добавленного
                 return user;
             }
         }
