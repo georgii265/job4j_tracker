@@ -9,6 +9,9 @@ public class ItemSorter {
     }
     public static void sortName(List<Item> items) {
         items.sort(new SortByNameItem());
-    }
 
+    }
+    public static void sortNameItemReverse(List<Item> items) {
+        items.sort(new SortByNameItemReverse());
+    }
 }
