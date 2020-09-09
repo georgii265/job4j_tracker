@@ -1,13 +1,14 @@
 package ru.job4j.tracker;
 
-import ru.job4j.collection.Job;
-
 import java.util.Comparator;
 
+/**
+ * Чтобы обеспечить сортировку по убыванию, в компараторе мы сравниваем второй параметр с первым.
+ */
 public class SortByNameItemReverse implements Comparator<Item> {
 
     @Override
     public int compare(Item first, Item second) {
-        return first.getName().compareTo(second.getName());
+        return second.getName().compareTo(first.getName());
     }
 }
