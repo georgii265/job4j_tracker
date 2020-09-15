@@ -6,8 +6,6 @@ package ru.job4j.collection;
  *  - по приоритету и по возрастанию
  *  - по имени и по убыванию
  *  - по приоритету и по убыванию
- * 2. Напишите тесты, проверяющие отдельно поведение компараторов.
- * 3. Напишите тесты, проверяющие поведение комбинированных компараторов.
  */
 public class Job implements Comparable<Job>{
     private String name;
@@ -26,6 +24,10 @@ public class Job implements Comparable<Job>{
         return priority;
     }
 
+    /*
+     * метод toString().
+     * Он используется для получения строкового представления объекта.
+     */
     @Override
     public String toString() {
         return "Job{" +
@@ -35,8 +37,8 @@ public class Job implements Comparable<Job>{
     }
 
     @Override
-    public int compareTo(Job another) {
-        return Integer.compare(priority, another.priority);
+    public int compareTo(Job o) {
+        return Integer.compare(priority, o.priority);
     }
 }
 

@@ -29,15 +29,4 @@ public class ItemSortTest {
         ItemSorter.sortName(items);
         assertThat(tmp, is(items));
     }
-
-    @Test
-    public void sortNameItemReverse() {
-        Item item1 = new Item("Fix bugs", "3");
-        Item item2 = new Item("Impl task", "2");
-        Item item3 = new Item("Reboot server", "1");
-        List<Item> items = Arrays.asList(item3, item2, item1);
-        List<Item> tmp = Arrays.asList(item1, item2, item3);
-        ItemSorter.sortNameItemReverse(items);
-        assertThat(tmp, is(items));
-    }
 }
