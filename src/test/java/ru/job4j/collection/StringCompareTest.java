@@ -5,7 +5,7 @@ import org.junit.Test;
 import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.lessThan;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class StringCompareTest {
     @Test
@@ -54,6 +54,16 @@ public class StringCompareTest {
         int rst = compare.compare(
                 "Patrova",
                 "Petrov"
+        );
+        assertThat(rst, lessThan(0));
+    }
+
+    @Test
+    public void whenOneOfTheLinesIsEmpty() {
+        StringCompare compare = new StringCompare();
+        int rst = compare.compare(
+                " ",
+                "Sidorov"
         );
         assertThat(rst, lessThan(0));
     }
