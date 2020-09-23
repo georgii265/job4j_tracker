@@ -5,11 +5,12 @@ package ru.job4j.tracker;
  * Метод append() — обновляет значение объекта, который вызвал метод.
  * Этот метод в Java принимает boolean, char, int, long, Strings и т.д.
  */
-public class StubOutput implements Output{
+public class StubOutput implements Output {
     private final StringBuilder buffer = new StringBuilder();
 
     /**
-     *  Этот метод принимает объект обязательного параметра, который является объектом, который будет напечатан в потоке.
+     * Этот метод принимает объект обязательного параметра, который является объектом, который будет напечатан в потоке.
+     *
      * @param obj
      */
     @Override
@@ -19,7 +20,7 @@ public class StubOutput implements Output{
         } else {
             buffer.append("null");
         }
-        buffer.append(System.lineSeparator());//Этот метод не принимает никаких параметров.
+        buffer.append(System.lineSeparator()); //Этот метод не принимает никаких параметров.
     }
 
     @Override

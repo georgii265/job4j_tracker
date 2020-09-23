@@ -8,6 +8,7 @@ public class UsageArrayList {
      * ArrayList - автоматически расширяемый массив.
      * Вы можете работать с массивом, но при этом не используются квадратные скобки.
      * создайте нужный объект, вставьте объект методом add();
+     *
      * @param args
      */
     public static void main(String[] args) {

@@ -11,13 +11,14 @@ public class Account {
     private double balance;
 
     public Account(String requisite, double balance) {
-        this.requisite = requisite;//создаем новый аккаунт пользователя и регистрируем его
-        this.balance = balance;//создаем балланс пользователя
+        this.requisite = requisite; //создаем новый аккаунт пользователя и регистрируем его
+        this.balance = balance; //создаем балланс пользователя
     }
 
     /**
      * “get” — “получать”
      * (т.е. “метод для получения значения поля”)
+     *
      * @return
      */
     public String getRequisite() {
@@ -27,6 +28,7 @@ public class Account {
     /**
      * set — “устанавливать”
      * (т.е. “метод для установки значения поля”).
+     *
      * @param requisite
      */
     public void setRequisite(String requisite) {
@@ -43,18 +45,25 @@ public class Account {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Account account = (Account) o;
-        return Objects.equals(requisite, account.requisite);
+        if (this == o) {
+            return true;
+        }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
+            Account account = (Account) o;
+            return Objects.equals(requisite, account.requisite);
+        }
+
+
+        /**
+         * метод который помогает оценить они возможно равны или неравны точно
+         *
+         * @return
+         */
+        @Override
+        public int hashCode() {
+            return Objects.hash(requisite);
+        }
     }
 
-    /**
-     * метод который помогает оценить они возможно равны или неравны точно
-     * @return
-     */
-    @Override
-    public int hashCode() {
-        return Objects.hash(requisite);
-    }
-}

@@ -4,13 +4,13 @@ import java.util.Comparator;
 
 /**
  * по приоритету и по возрастанию
- *  Чтобы обеспечить сортировку по возростанию,
- *  в компараторе мы сравниваем первый параметр со вторым,
+ * Чтобы обеспечить сортировку по возростанию,
+ * в компараторе мы сравниваем первый параметр со вторым,
  */
 public class JobByPriority implements Comparator<Job> {
 
     @Override
     public int compare(Job o1, Job o2) {
-        return Integer.compare(o1.getPriority(),o2.getPriority());
+        return Integer.compare(o1.getPriority(), o2.getPriority());
     }
 }

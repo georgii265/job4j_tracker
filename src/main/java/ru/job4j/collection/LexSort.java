@@ -1,6 +1,7 @@
 package ru.job4j.collection;
 
 import java.util.Comparator;
+
 import static java.lang.Integer.parseInt;
 
 /**
@@ -12,7 +13,7 @@ import static java.lang.Integer.parseInt;
 public class LexSort implements Comparator<String> {
 
     @Override
-    public int compare(String left,String right) {
+    public int compare(String left, String right) {
         String[] leftNum = left.split(". ");
         String[] rightNum = right.split(". ");
         int leftNumber = parseInt(leftNum[0]);

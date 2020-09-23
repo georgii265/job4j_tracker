@@ -1,11 +1,13 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.StringJoiner;
+
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertThat;
 
 public class FindAllActionTest {
 
@@ -18,7 +20,7 @@ public class FindAllActionTest {
         Item item = new Item("--- All items ---");
         tracker.add(item);
         FindAllAction act = new FindAllAction();
-        act.execute(new StubInput(new String[] {}), tracker);
+        act.execute(new StubInput(new String[]{}), tracker);
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
                 .add("Name: " + item.getName() + " id: " + item.getId())
                 .toString();

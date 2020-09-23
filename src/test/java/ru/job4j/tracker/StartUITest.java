@@ -1,9 +1,11 @@
 package ru.job4j.tracker;
 
 import org.junit.Test;
+
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.StringJoiner;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -32,10 +34,10 @@ public class StartUITest {
      * 5. Вызываем тестируемый метод replaceItem. Это действие изменит состояние объекта tracker.
      * 6. Ищем по item.id замененный item в объекте tracker.
      * 7. Сравниваем имя найденной заявки с ожидаемой.
-     *  String[] answers = {
-     *                 item.getId(), // id сохраненной заявки в объект tracker.
-     *                 "replaced item"
-     *         };
+     * String[] answers = {
+     * item.getId(), // id сохраненной заявки в объект tracker.
+     * "replaced item"
+     * };
      */
     @Test
     public void whenReplaceItem() {

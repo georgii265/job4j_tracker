@@ -1,6 +1,7 @@
 package ru.job4j.collection;
 
 import java.util.Comparator;
+
 /**
  * по имени и по возрастанию.
  * Чтобы обеспечить сортировку по возрастанию,

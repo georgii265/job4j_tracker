@@ -1,7 +1,5 @@
 package ru.job4j.tracker;
 
-import static java.lang.Integer.valueOf;
-
 /**
  * Давайте его доработаем таким образом, чтобы метод askStr возвращал параметры, которые мы хотим.
  * добавим в этот класс поле с вариантами ответов пользователя.
@@ -20,7 +18,6 @@ public class StubInput implements Input {
     public StubInput(String[] answers) {
         this.answers = answers;
     }
-
 
 
     @Override

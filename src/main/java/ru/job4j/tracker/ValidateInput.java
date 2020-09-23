@@ -2,13 +2,13 @@ package ru.job4j.tracker;
 
 /**
  * Ввод строки вместо числа
- *
+ * <p>
  * Если мы посмотрим на метод ConsoleInput.askInt(String question), то увидим, что в нём предусмотрены не все действия пользователя.
- *
+ * <p>
  * Давайте добавим в него нужное поведение за счет механизма переопределения (override).
- *
+ * <p>
  * Чтобы использовать переопределение метода, нужно создать класс, который будет наследовать ConsoleInput.
- *
+ * <p>
  * Давайте назовем его ValidateInput.
  */
 public class ValidateInput implements Input {
@@ -28,6 +28,7 @@ public class ValidateInput implements Input {
 
     /**
      * цикл do-while выполняется по крайней мере один раз, даже если условие изначально ложно
+     *
      * @param question
      * @return
      */
@@ -39,8 +40,8 @@ public class ValidateInput implements Input {
             try {
                 value = in.askInt(question);
                 invalid = false;
-           } catch (IllegalStateException moe) {
-               out.println("Please select key from menu.");
+            } catch (IllegalStateException moe) {
+                out.println("Please select key from menu.");
             } catch (NumberFormatException nfe) {
                 out.println("Please enter validate data again.");
             }

@@ -14,7 +14,7 @@ import java.util.Random;
 
 public class Tracker {
 
-    private final List<Item>  items = new ArrayList<>();
+    private final List<Item> items = new ArrayList<>();
 
     public Item add(Item item) {
         items.add(item);
@@ -45,12 +45,12 @@ public class Tracker {
     public Item findById(String id) {
         int index = indexOf(id);
         if (index != -1) {
-             items.get(index);
+            items.get(index);
         }
         return null;
     }
 
-   
+
     public boolean replace(String id, Item item) {
         int index = indexOf(id);
         item.setId(id);

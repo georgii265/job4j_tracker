@@ -1,8 +1,10 @@
 package ru.job4j.bank;
 
 import org.junit.Test;
+
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertThat;
 
 public class BankServiceTest {
     @Test
@@ -33,10 +35,10 @@ public class BankServiceTest {
 
     @Test
     public void transferMoney() {
-        User user = new User("3434", "Petr Arsentev");//создаем пользователя с данными
-        BankService bank = new BankService();//модель пользователя банка
+        User user = new User("3434", "Petr Arsentev"); //создаем пользователя с данными
+        BankService bank = new BankService(); //модель пользователя банка
         bank.addUser(user);
-        bank.addAccount(user.getPassport(), new Account("5546", 150D));//создаем новый аккаунт пользователя и добавляем его
+        bank.addAccount(user.getPassport(), new Account("5546", 150D)); //создаем новый аккаунт пользователя и добавляем его
         bank.addAccount(user.getPassport(), new Account("113", 50D));
         bank.transferMoney(user.getPassport(), "5546", user.getPassport(), "113", 150D);
         assertThat(bank.findByRequisite(user.getPassport(), "113").getBalance(), is(200D));

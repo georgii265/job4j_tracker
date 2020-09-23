@@ -1,7 +1,6 @@
 package ru.job4j.tracker;
 
 
-
 public class FindAllAction implements UserAction {
 
     @Override
@@ -14,9 +13,9 @@ public class FindAllAction implements UserAction {
         for (Item item : tracker.findAll()) {
             System.out.println(item);
         }
-            return true;
-        }
+        return true;
     }
+}
 
 
 

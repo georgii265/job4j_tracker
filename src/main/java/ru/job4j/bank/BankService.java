@@ -6,8 +6,9 @@ import java.util.List;
 import java.util.Map;
 
 public class BankService {
+
     /**
-     *  поле содержит всех пользователей системы с привязанными к ним счетами.
+     * поле содержит всех пользователей системы с привязанными к ним счетами.
      */
     private Map<User, List<Account>> users = new HashMap<>();
 
@@ -25,8 +26,8 @@ public class BankService {
      * @param user
      */
     public void addUser(User user) {
-        List<Account> newUser = new ArrayList<>();//проверяем пользователя
-        users.putIfAbsent(user, newUser);//если его нет тогда добавляем
+        List<Account> newUser = new ArrayList<>(); //проверяем пользователя
+        users.putIfAbsent(user, newUser); //если его нет тогда добавляем
     }
 
     /**
@@ -59,12 +60,13 @@ public class BankService {
      * Из этого представления можно удалять элементы,
      * при этом ключи и соответствующие им значения автоматически удаляются из карты,
      * но добавлять новые элементы нельзя.
+     *
      * @param passport
      * @return
      */
     public User findByPassport(String passport) {
-        for (User user : users.keySet()) {//ищем пользователя по его размеру
-            if (user.getPassport().equals(passport)) {//здесь мы сравниваем паспорт пользователя и паспорт добавленного
+        for (User user : users.keySet()) { //ищем пользователя по его размеру
+            if (user.getPassport().equals(passport)) { //здесь мы сравниваем паспорт пользователя и паспорт добавленного
                 return user;
             }
         }
@@ -75,6 +77,7 @@ public class BankService {
      * Этот метод ищет счет пользователя по реквизитам.
      * Сначала нужно найти пользователя.
      * Потом получить список счетов этого пользователя и в нем найти нужный счет.
+     *
      * @param passport
      * @param requisite
      * @return
@@ -96,18 +99,19 @@ public class BankService {
      * Метод для перечисления денег с одного счёта на другой счёт.
      * Если счёт не найден или не хватает денег на счёте srcAccount (с которого переводят), то метод должен вернуть false.
      * double amount - колличество переводимых денег.
+     *
      * @param srcPassport
      * @param srcRequisite
      * @param destPassport
-     * @param dеstRequisite
+     * @param destRequisite
      * @param amount
      * @return
      */
     public boolean transferMoney(String srcPassport, String srcRequisite,
-                                 String destPassport, String dеstRequisite, double amount) {
+                                 String destPassport, String destRequisite, double amount) {
         boolean rsl = false;
         Account srcAccount = findByRequisite(srcPassport, srcRequisite);
-        Account destAccount = findByRequisite(destPassport, dеstRequisite);
+        Account destAccount = findByRequisite(destPassport, destRequisite);
         if (srcAccount != null && destAccount != null && srcAccount.getBalance() >= amount) {
             srcAccount.setBalance(srcAccount.getBalance() - amount);
             destAccount.setBalance(destAccount.getBalance() + amount);

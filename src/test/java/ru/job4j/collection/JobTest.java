@@ -43,7 +43,7 @@ public class JobTest {
 
     @Test
     public void sortByPriorityEqualsName() {
-        Comparator<Job> jobComparatorPriority  = new JobByPriority()
+        Comparator<Job> jobComparatorPriority = new JobByPriority()
                 .thenComparing(new JobByPriorityReverse());
         int result = jobComparatorPriority.compare(new Job("Queue", 0), new Job("Map", 1));
         assertThat(result, lessThan(0));
