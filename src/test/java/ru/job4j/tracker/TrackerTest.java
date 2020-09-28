@@ -27,11 +27,9 @@ public class TrackerTest {
     @Test
     public void whenFindAllOneItemInTheTrackerThenGetOneItem() {
         Tracker tracker = new Tracker();
-        Item[] items = {new Item("test1")};
-        for (Item item : items) {
-            tracker.add(item);
-        }
-        assertThat(tracker.findAll(), is(items));
+        Item items = new Item("test1");
+        tracker.add(items);
+        assertThat(tracker.findAll().get(0).getName(), is("test1"));
     }
 
     /**
@@ -40,12 +38,9 @@ public class TrackerTest {
     @Test
     public void whenFindByNameOfTheItemThenFindIt() {
         Tracker tracker = new Tracker();
-        Item[] items = {new Item("test1")};
-        for (Item item : items) {
-            tracker.add(item);
-        }
-        Item[] expectedNames = {items[0]};
-        assertThat(tracker.findByName("test1"), is(expectedNames));
+        Item items = new Item("test1");
+        tracker.add(items);
+        assertThat(tracker.findByName("test1").get(0).getName(), is("test1"));
     }
 
     /**

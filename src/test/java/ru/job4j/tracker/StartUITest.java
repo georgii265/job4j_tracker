@@ -46,8 +46,8 @@ public class StartUITest {
         ReplaceAction replaceAction = new ReplaceAction();
         tracker.add(item);
         String[] answers = {
-                item.getId(),
-                "replaced item"
+                "replaced item",
+                item.getId()
         };
         replaceAction.execute(new StubInput(answers), tracker);
         Item replaced = tracker.findById(item.getId());

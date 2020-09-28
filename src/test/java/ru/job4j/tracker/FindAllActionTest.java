@@ -1,5 +1,6 @@
 package ru.job4j.tracker;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
@@ -22,7 +23,8 @@ public class FindAllActionTest {
         FindAllAction act = new FindAllAction();
         act.execute(new StubInput(new String[]{}), tracker);
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
-                .add("Name: " + item.getName() + " id: " + item.getId())
+                //.add("Item{id='" + item.getId() + "', name='" + item.getName() + "'}")
+                .add(item.toString())
                 .toString();
         assertThat(new String(out.toByteArray()), is(expect));
         System.setOut(def);

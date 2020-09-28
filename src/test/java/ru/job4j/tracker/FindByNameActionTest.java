@@ -24,7 +24,8 @@ public class FindByNameActionTest {
         FindByNameAction act = new FindByNameAction();
         act.execute(new StubInput(answers), tracker);
         String expect = new StringJoiner(System.lineSeparator(), "", System.lineSeparator())
-                .add("Name: " + item.getName() + " id: " + item.getId())
+                //.add("Name: " + item.getName() + " id: " + item.getId())
+                .add(item.toString())
                 .toString();
         assertThat(new String(out.toByteArray()), is(expect));
         System.setOut(def);
