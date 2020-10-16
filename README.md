@@ -4,3 +4,8 @@
 # job4j_tracker 
 
 Не волнуйся, если ***не работает.*** Если бы все всегда работало, у тебя бы ***не было [работы](https://job4j.ru/edu/login).***
+
+- __Lambda__
+  - [*Functional Interfaces in Java 8.*](https://www.baeldung.com/java-8-functional-interfaces)
+  - [*The Double Colon Operator in Java 8*](https://www.baeldung.com/java-8-double-colon-operator)
+  - [*Lambda Expressions and Functional Interfaces: Tips and Best Practices*](https://www.baeldung.com/java-8-lambda-expressions-tips)
