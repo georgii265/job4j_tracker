@@ -37,5 +37,10 @@ public class SearchAtt {
         }
         return rsl;
     }
+
+    public static void main(String[] args) {
+        List<Attachment> rsl = new ArrayList<>();
+        System.out.println(filter(rsl, a -> a.getSize() > 100 && a.getName().equals("bug")).size());
+    }
 }
 
