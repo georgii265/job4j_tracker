@@ -1,7 +1,5 @@
 package ru.job4j.lambda;
 
-import com.sun.jdi.PathSearchingVirtualMachine;
-
 import java.util.function.Supplier;
 
 public class ScopeInside {
