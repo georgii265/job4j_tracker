@@ -54,14 +54,11 @@ public class Address {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Address address = (Address) o;
-        return home == address.home &&
-                apartment == address.apartment &&
-                city.equals(address.city) &&
-                street.equals(address.street);
+        return Objects.equals(city, address.city);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(city, street, home, apartment);
+        return Objects.hash(city);
     }
 }
