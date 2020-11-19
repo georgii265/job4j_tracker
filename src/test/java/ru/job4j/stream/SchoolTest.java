@@ -3,8 +3,11 @@ package ru.job4j.stream;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Predicate;
 
 import static org.hamcrest.core.Is.is;
@@ -61,5 +64,17 @@ public class SchoolTest {
         expected.add(new Student(30, "Surname3"));
         expected.add(new Student(40, "Surname4"));
         assertThat(rsl, is(expected));
+    }
+
+    @Test
+    public void whenConvertingListToMap() {
+        List<Student> list = Arrays.asList(
+                new Student(50, "Socolov"),
+                new Student(50, "Ivanov"),
+                new Student(60, "Rogov")
+        );
+        Map<Integer, String> rsl =School.ListStudent(list);
+        assertThat(rsl, is(rsl));
+
     }
 }
