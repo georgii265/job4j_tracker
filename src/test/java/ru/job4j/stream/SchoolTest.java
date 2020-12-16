@@ -75,6 +75,5 @@ public class SchoolTest {
         );
         Map<Integer, String> rsl =School.ListStudent(list);
         assertThat(rsl, is(rsl));
-
     }
 }
