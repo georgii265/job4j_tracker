@@ -9,6 +9,8 @@ public class BankService {
 
     /**
      * поле содержит всех пользователей системы с привязанными к ним счетами.
+     * Здесь мы создали users, в котором элементы будут храниться в формате “User-List<Account>”.
+     * User будет выступать ключом, а List<Account> — значением.
      */
     private Map<User, List<Account>> users = new HashMap<>();
 
@@ -23,6 +25,7 @@ public class BankService {
      * users.put(user, new ArrayList<Account>());
      * PutIfAbsent() - все упростилось для вызова одного метода
      * users.putIfAbsent(user, new ArrayList<Account>());
+     *
      * @param user
      */
     public void addUser(User user) {
@@ -40,6 +43,7 @@ public class BankService {
      * get(int index) - возвращает элемент, который расположен в указанной позиции списка.
      * contains(Object o) - проверка наличие объекта в списке, возвращает boolean-значение.
      * contains()- метод чтобы проверить, содержит ли String указанную последовательность символов.
+     *
      * @param passport
      * @param account
      */
@@ -65,12 +69,11 @@ public class BankService {
      * @return
      */
     public User findByPassport(String passport) {
-        for (User user : users.keySet()) { //ищем пользователя по его размеру
-            if (user.getPassport().equals(passport)) { //здесь мы сравниваем паспорт пользователя и паспорт добавленного
-                return user;
-            }
-        }
-        return null;
+        return users.keySet()
+                .stream()
+                .filter(user -> user.getPassport().equals(passport))
+                .findFirst()
+                .orElse(null);
     }
 
     /**
@@ -84,15 +87,15 @@ public class BankService {
      */
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
+        Account rsl = null;
         if (user != null) {
-            List<Account> accounts = users.get(user);
-            for (Account account : accounts) {
-                if (account.getRequisite().equals(requisite)) {
-                    return account;
-                }
-            }
+            rsl = users.get(user)
+                    .stream()
+                    .filter(account -> account.getRequisite().equals(requisite))
+                    .findFirst()
+                    .orElse(null);
         }
-        return null;
+        return rsl;
     }
 
     /**
@@ -120,3 +123,4 @@ public class BankService {
         return rsl;
     }
 }
+
