@@ -2,11 +2,22 @@ package ru.job4j.bank;
 
 import org.junit.Test;
 
+import java.util.Optional;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThat;
 
 public class BankServiceTest {
+
+    @Test
+    public  void findByPassport() {
+        BankService bank = new BankService();
+        bank.addUser(new User("321", "Petr Arsentev"));
+        Optional<User> opt = bank.findByPassport("3211");
+        opt.ifPresent(user -> opt.get().getUsername());
+    }
+
     @Test
     public void addUser() {
         User user = new User("3434", "Petr Arsentev");
